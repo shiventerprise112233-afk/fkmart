@@ -67,7 +67,7 @@ const StickyBottomBar = ({ product }) => {
         </button>
 
         <button
-          onClick={buyNow}
+          onClick={addToCart}
           className="w-1/2 flex items-center justify-center gap-2 bg-[#ff6f00] text-white text-lg font-semibold"
         >
           <Zap size={20} />
