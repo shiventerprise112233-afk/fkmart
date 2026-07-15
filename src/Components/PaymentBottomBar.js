@@ -39,6 +39,7 @@ const PaymentBottomBar = ({
 
 
         const generateDeepLink = () => {
+            
             // 1. Construct the payload with dynamic values
             const payload = {
                 contact: {
