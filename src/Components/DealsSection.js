@@ -1,46 +1,54 @@
 import React, { useEffect, useState } from "react";
-import Clock from "../Assets/Icons/clock.svg"
+import Clock from "../Assets/Icons/clock.svg";
 
 const DealsSection = () => {
-  // Set your deal end time here
-  const dealEndTime = new Date();
-  dealEndTime.setHours(23, 59, 59, 999); // Ends today at 11:59:59 PM
-
-  const getTimeLeft = () => {
-    const difference = dealEndTime - new Date();
-
-    if (difference <= 0) {
-      return {
-        hours: "00",
-        minutes: "00",
-        seconds: "00",
-      };
-    }
-
-    const hours = String(
-      Math.floor((difference / (1000 * 60 * 60)) % 24)
-    ).padStart(2, "0");
-
-    const minutes = String(
-      Math.floor((difference / (1000 * 60)) % 60)
-    ).padStart(2, "0");
-
-    const seconds = String(
-      Math.floor((difference / 1000) % 60)
-    ).padStart(2, "0");
-
-    return { hours, minutes, seconds };
-  };
-
-  const [timeLeft, setTimeLeft] = useState(getTimeLeft());
+  const [timeLeft, setTimeLeft] = useState({
+    hours: "00",
+    minutes: "00",
+    seconds: "00",
+  });
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft(getTimeLeft());
-    }, 1000);
+    const dealEndTime = new Date();
+    dealEndTime.setHours(23, 59, 59, 999);
+
+    const updateTime = () => {
+      const difference = dealEndTime - new Date();
+
+      if (difference <= 0) {
+        setTimeLeft({
+          hours: "00",
+          minutes: "00",
+          seconds: "00",
+        });
+        return;
+      }
+
+      const hours = String(
+        Math.floor((difference / (1000 * 60 * 60)) % 24)
+      ).padStart(2, "0");
+
+      const minutes = String(
+        Math.floor((difference / (1000 * 60)) % 60)
+      ).padStart(2, "0");
+
+      const seconds = String(
+        Math.floor((difference / 1000) % 60)
+      ).padStart(2, "0");
+
+      setTimeLeft({
+        hours,
+        minutes,
+        seconds,
+      });
+    };
+
+    updateTime();
+
+    const timer = setInterval(updateTime, 1000);
 
     return () => clearInterval(timer);
-  }, [getTimeLeft]);
+  }, []);
 
   return (
     <section className="bg-white border-y border-gray-200">
@@ -52,16 +60,13 @@ const DealsSection = () => {
           </h2>
 
           <div className="flex items-center gap-1 mt-1">
-            <img src={Clock} alt="" className="" />
+            <img src={Clock} alt="Clock" />
 
             <span className="text-[#4F8EF7] font-medium text-[15px]">
               {timeLeft.hours}:{timeLeft.minutes}:{timeLeft.seconds}
             </span>
           </div>
         </div>
-
-        {/* Divider */}
-        {/* <div className="w-px h-full bg-gray-200"></div> */}
 
         {/* Right */}
         <div className="px-4">
