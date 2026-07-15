@@ -40,7 +40,7 @@ const DealsSection = () => {
     }, 1000);
 
     return () => clearInterval(timer);
-  }, []);
+  }, [getTimeLeft]);
 
   return (
     <section className="bg-white border-y border-gray-200">
