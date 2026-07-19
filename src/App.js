@@ -7,6 +7,7 @@ import Cart from './Pages/Cart';
 import Address from './Pages/Address';
 import OrderSummary from './Pages/OrderSummary';
 import Payment from './Pages/Payment';
+import HomeImg from './Pages/HomeImg';
 
 function App() {
   
@@ -15,6 +16,7 @@ function App() {
     <Header />
     <Routes>
       <Route path="/" element={<Home/>} />
+      <Route path="/home" element={<HomeImg/>} />
       <Route path="/product-details/:id" element={<ProductDetails/>} />
       <Route path="/cart" element={<Cart/>} />
       <Route path="/address" element={<Address/>} />
