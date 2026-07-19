@@ -40,6 +40,7 @@ const Header = () => {
   return (
     <header className="w-full shadow-sm">
       {/* Top Header */}
+      {location.pathname !== "/home" &&
       <div className="bg-[#2874F0] flex items-center justify-between pr-3 pt-3 pb-2">
         {/* Left */}
         <div
@@ -92,7 +93,7 @@ const Header = () => {
           </div>
         </div>
       </div>
-
+}
       {/* Search */}
       {location.pathname === "/" && (
         <div className="bg-[#2874F0] px-3 pb-2">
