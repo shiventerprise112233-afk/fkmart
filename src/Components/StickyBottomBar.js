@@ -29,6 +29,7 @@ const StickyBottomBar = ({ product }) => {
       window.dispatchEvent(new Event("cartUpdated"));
 
       showMessage("Product added to cart successfully.");
+      navigate("/address");
     } else {
       showMessage("Product already exists in cart.");
     }
