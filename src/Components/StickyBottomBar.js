@@ -35,18 +35,7 @@ const StickyBottomBar = ({ product }) => {
     }
   };
 
-  const buyNow = () => {
-    localStorage.setItem(
-      "buyNow",
-      JSON.stringify({
-        ...product,
-        quantity: 1,
-      })
-      
-    );
-    window.dispatchEvent(new Event("cartUpdated"));
-    navigate("/address");
-  };
+
 
   return (
     <>
