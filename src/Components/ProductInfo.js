@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { TrendingUp } from "lucide-react";
+import Assured from "../Assets/Icons/plue-fassured.png"
 
 const ProductInfo = ({ product }) => {
   // Generate random ordered count only once
@@ -83,7 +84,7 @@ const ProductInfo = ({ product }) => {
           </div>
 
           <img
-            src="/images/plus-assured.png"
+            src={Assured}
             alt="Flipkart Assured"
             className="h-7 object-contain"
           />
