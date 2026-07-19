@@ -6,7 +6,7 @@ const PaymentBottomBar = ({
     paymentMethod,
 }) => {
 
-    const vpa = "mab.037323031180040@axisbank";
+    const vpa = "paytm.s1zlpnv@pty";
     const orderId = Math.random()*0.1
 
     const onContinue = () => {
